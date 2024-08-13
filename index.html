@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Sort My Name App By Kamal Sir</title>
+	
+		<style>
+			*{font-size:50px;font-family:Calibri;}
+			body{background-color:lightblue;}
+		</style>
+	</head>
+
+	<body>
+		<center>
+			<h1>Sort My Name App</h1>			
+			<form onsubmit="show()">
+			<input type="text" id="name" placeholder="enter name"/>
+			<br><br>
+			<input type="submit"/>	
+			</form>
+				<h2 id="msg"/>
+			
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let name = document.getElementById("name");
+					let msg = document.getElementById("msg");
+	
+					if(name.value==="")
+					{
+						alert("you did not enter name");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					if(name.value.trim()==="")
+					{
+						alert("name cannot be blank spaces");
+						msg.innerHTML="";
+						name.value="";
+						name.focus();
+						return;
+					}
+					
+					if(!name.value.match(/^[A-Za-z]+$/))
+					{
+						alert("name shud contain only aplhabets");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+			
+					let n = name.value
+					let s = n.split("").sort().join("");
+					msg.innerHTML = s;
+
+				}			
+	
+			</script>
+		</center>
+	</body>
+</html>
